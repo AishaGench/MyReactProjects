@@ -2,13 +2,14 @@ import React, {useState}from 'react'
 
 function Form(props){
 
-    const [search, setSearch] = useState("")
+    const [element, setElement] = useState("")
 
     const handleChange=(e)=>{
-        setSearch(e.target.value);
+        setElement(e.target.value);
     }
 
-    const handleSubmit = () =>{
+    const handleSubmit = (e) =>{
+        e.preventDefault()
         props.fetchFunc(element)
 
     }
@@ -16,10 +17,9 @@ function Form(props){
     return(
 
         <div>
-            <form onSubmit = {onFormSubmit}>
-                <label htmlFor ="search">Search</label>
-                <input type="text" name="search" id="search" value={search} onChange={handleChange} />
-                <button onClick = {handleSubmit}>Submit</button>
+            <form >
+                <input type="text" onChange={handleChange} />
+                <button onClick = {handleSubmit}>Search</button>
             </form>
         </div>
 

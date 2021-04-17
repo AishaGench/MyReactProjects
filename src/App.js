@@ -3,27 +3,29 @@ import  Form from './Form';
 
 
 function App() {
-  const [data,setData] = useState(['',[],[],[]]);
+  const [myState, setMyState] = useState(["",[],[],[]]);
 
-  const fetchFunc = (searchKeyWord) => {
-    const url = `https://en.wikipedia.org/w/api.php?action=opensearch&search=${data}&format=json&origin=*&limit=10`;
+  const fetchFunc = (searchKeyword) => {
+    const url = `https://en.wikipedia.org/w/api.php?action=opensearch&search=${searchKeyword}&format=json&origin=*&limit=10`;
 
     fetch(url)
-    .then((response) => {response.json()})
-    .then((response) => {setsearchKeyWord(response)})
+    .then(response => response.json())
+    .then(jsonResponse => {
+      setMyState(jsonResponse)
+    })
     
   }
+  console.log(myState)
 
   return (
     <div className="container">
+
       <h1>Wikipedia Search with Function Component</h1>
       <Form fetchFunc={fetchFunc}/>
       <ul>
-        {data[3].map((entry,index)=>{
+        {myState[3].map((item,index)=>{
           return(
-            <a href = {entry} target="_blank" rel="noreferrer" key={index}>
-              <li>{entry}</li>
-            </a>
+            <a href ={item} key={index} target="_blank" rel="noreferrer"><li>{item}</li></a>
           )
         })}
       </ul>
