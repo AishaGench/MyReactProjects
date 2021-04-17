@@ -1,5 +1,6 @@
 import React from 'react';
-
+import Video from './Video.js'
+import Menu from './Menu.js'
 
 const VIDEOS = {
   fast: 'https://cdn.videvo.net/videvo_files/video/free/2015-04/small_watermarked/Equestrian_04_Videvo_preview.webm',
@@ -9,12 +10,23 @@ const VIDEOS = {
 };
 
 class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={videoSrc:''}
+  }
+
+  chooseVideo = (source) => {
+    this.setState({videoSrc:VIDEOS[source]})
+  }
+
   
   render() {
+    console.log(this.state)
     return (
       <div className="card">
         <h1>Video Player</h1>
-        
+        <Menu chooseVideo={this.chooseVideo}/>
+        <Video video={this.state.videoSrc}/>
       </div>
     );
   }
