@@ -12,11 +12,11 @@ const VIDEOS = {
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.state={videoSrc:''}
+    this.state={src:''}
   }
 
   chooseVideo = (source) => {
-    this.setState({videoSrc:VIDEOS[source]})
+    this.setState({src:VIDEOS[source]})
   }
 
   
@@ -26,7 +26,7 @@ class App extends React.Component {
       <div className="card">
         <h1>Video Player</h1>
         <Menu chooseVideo={this.chooseVideo}/>
-        <Video video={this.state.videoSrc}/>
+        <Video video={this.state.src}/>
       </div>
     );
   }

@@ -4,7 +4,7 @@ export default function Video(props) {
 
     return(
         <div>
-            <video videoSrc= {props.video}/>
+            <video src= {props.video} width="320" height="240" controls/>
         </div>
     )
     
