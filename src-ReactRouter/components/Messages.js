@@ -11,9 +11,8 @@ export default function Messages(props) {
         <Link to= '/messages/3'><li key="3">Message Number - 3 </li> </Link>
         </ul>
         <Switch>
-            <Route path="/messages/:id" exact component = {Message}/>
-            <Route path={this.props.match.url} render={() => <h3>Please select a message</h3>}
-></Route>
+            <Route path="/messages/:id" component = {Message}/>
+            <Route path={props.match.url} render={() => <h3>Please select a message</h3>}/>
         </Switch>
         </div>
     )
