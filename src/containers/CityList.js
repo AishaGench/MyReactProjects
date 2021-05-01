@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
+import { WeatherContext } from "../context/WeatherContext";
 
 
 const CityList = () => {
+
+  const {cities} = useContext(WeatherContext)
   
     return (
       <table className="city-list">
@@ -12,10 +15,13 @@ const CityList = () => {
           </tr>
         </thead>
         <tbody>
-            <tr >
-              <td>city.name</td>
-              <td>city.temperature</td>
+          {cities.map((city, index)=>(
+            <tr key={index}>
+              <td>{city.name}</td>
+              <td>{city.temperature}</td>
             </tr>
+          ))}
+            
         </tbody>
       </table>
     );
