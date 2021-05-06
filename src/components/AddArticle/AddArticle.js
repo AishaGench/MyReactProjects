@@ -4,7 +4,7 @@ import {ArticleContext}  from '../../context/articleContext'
 
 const AddArticle = () => {
  const [article, setArticle] = useState({})
- const { saveArticle } = useContext(ArticleContext)
+ const { setArticles} = useContext(ArticleContext)
 
  const handleArticleData = (e) =>{
    
@@ -25,7 +25,8 @@ const AddArticle = () => {
  }
  const addNewArticle=(e)=>{
    e.preventDefault() 
-   saveArticle(article)
+   
+   setArticles({ type: "ADD_ARTICLE", article })
    
  } 
 
