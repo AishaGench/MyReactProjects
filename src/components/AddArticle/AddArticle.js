@@ -1,16 +1,42 @@
-import React from "react";
+import React,{useState,useContext} from "react";
 import "./AddArticle.css";
+import {ArticleContext}  from '../../context/articleContext'
 
 const AddArticle = () => {
+ const [article, setArticle] = useState({})
+ const { saveArticle } = useContext(ArticleContext)
+
+ const handleArticleData = (e) =>{
+   
+  //  if(e.target.id === 'body'){
+  //    setArticle({...article,
+  //     body: e.target.value 
+  //   })
+  //  }else if(e.target.id === 'title'){
+  //   setArticle({...article,
+  //     title: e.target.value 
+  //   })
+  //  }
+
+  setArticle({...article,
+    [e.target.id]:e.target.value
+  })
+
+ }
+ const addNewArticle=(e)=>{
+   e.preventDefault() 
+   saveArticle(article)
+   
+ } 
 
   return (
-    <form className="add-article">
-      <input
+    <form className="add-article" onSubmit={addNewArticle}>
+      <input onChange ={handleArticleData}
         type="text"
         id="title"
         placeholder="Title"
       />
-      <input
+      <input onChange ={handleArticleData}
         type="text"
         id="body"
         placeholder="Body"
