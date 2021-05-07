@@ -1,17 +1,14 @@
-import React from "react"
-import Articles from "./containers/Articles"
-import AddArticle from "./components/AddArticle/AddArticle"
-import ArticleProvider from './context/articleContext'
+import React from 'react';
+import Navigation from './components/Navigation/Navigation';
+import SaladMaker from './components/SaladMaker/SaladMaker';
 
 function App() {
   return (
-      <ArticleProvider>
-
-      <AddArticle />
-      <Articles />
-
-      </ArticleProvider>
-  
-  )
+    <>
+      <Navigation />
+      <SaladMaker />
+    </>
+  );
 }
-export default App
+
+export default App;
