@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 import { createUseStyles } from 'react-jss';
+import UserContext from '../../context/UserContext'
+import {SaladContext} from '../SaladMaker/SaladMaker'
 
 const useStyles = createUseStyles({
   add: {
@@ -29,8 +31,12 @@ const useStyles = createUseStyles({
 });
 
 export default function SaladItem({ image, name }) {
+  const user = useContext(UserContext)
+  const {setSalad} = useContext(SaladContext)
+
   const classes = useStyles();
   const favorite = true;
+
   return(
     <div className={classes.wrapper}>
         <h3>
