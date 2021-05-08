@@ -31,21 +31,21 @@ const useStyles = createUseStyles({
 });
 
 export default function SaladItem({ image, name }) {
-  const user = useContext(UserContext)
-  const {setSalad} = useContext(SaladContext)
+  const {user, emojiChange} = useContext(UserContext)
+  const {salad,setSalad} = useContext(SaladContext)
 
   const classes = useStyles();
-  const favorite = true;
+  const favorite = user.favorites.includes(name);
 
   return(
     <div className={classes.wrapper}>
         <h3>
           {name}
         </h3>
-        <span className={classes.favorite} aria-label={favorite ? 'Favorite' : 'Not Favorite'}>
-          {favorite ? '😋' : ''}
+        <span className={classes.favorite} aria-label={favorite ? 'Favorite' : 'Not Favorite'} onClick={()=>emojiChange(name)}>
+          {favorite ? '😋' : '🥺'}
         </span>
-        <button className={classes.add}>
+        <button className={classes.add} onClick={()=>setSalad(name)}>
           <span className={classes.image} role="img" aria-label={name}>{image}</span>
         </button>
     </div>

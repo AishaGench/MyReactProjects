@@ -1,7 +1,7 @@
-import userEvent from '@testing-library/user-event';
 import React, {useContext} from 'react';
 import { createUseStyles } from 'react-jss';
 import UserContext from '../../context/UserContext'
+
 const useStyles = createUseStyles({
   wrapper: {
     borderBottom: 'black solid 1px',
@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
 
 export default function Navigation() {
   const classes = useStyles();
-  const user = useContext(UserContext)
+  const {user} = useContext(UserContext)
   return(
     <div className={classes.wrapper}>
       Welcome,  {user.name}

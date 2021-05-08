@@ -15,14 +15,14 @@ function reducer(state, item) {
   return [...state, item]
 }
 
+
 export default function SaladMaker() {
   const classes = useStyles();
   const [salad, setSalad] = useReducer(reducer, []);
 
-
   return(
     <>
-    <SaladContext.Provider>
+    <SaladContext.Provider value={{salad, setSalad}}>
       <h1 className={classes.wrapper}>
         <span role="img" aria-label="salad">🥗 </span>
           Build Your Custom Salad!

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { createUseStyles } from 'react-jss';
+import {SaladContext} from "../SaladMaker/SaladMaker"
 
 const useStyles = createUseStyles({
   list: {
@@ -20,13 +21,14 @@ const useStyles = createUseStyles({
 
 export default function SaladSummary() {
   const classes = useStyles();
+  const {salad} = useContext(SaladContext)
   return(
     <div className={classes.wrapper}>
       <h2>Your Salad</h2>
       <ul className={classes.list}>
-        <li>Apple</li>
-        <li>Avocado</li>
-        <li>Carrots</li>
+        {salad.map((item,index)=>{
+          return <li key={index}>{item}</li>
+        })}
       </ul>
     </div>
   )
