@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from 'react-redux'
 
 
 function App() {
@@ -8,5 +9,13 @@ function App() {
     </div>
   );
 }
+const mapStateToProps = state =>({
+  articles:state.articlesState.articles,
+  searchTerm:state.searchState.searchTerm,
+})
+const mapDispatchToProps = dispatch => ({
+  onSearch: searchTerm => dispatch({ type: 'SEARCH_SET', searchTerm }),
+});
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
