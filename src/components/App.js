@@ -5,8 +5,10 @@ function Articles(props){
   return(
     <div>
       <ul>
-        {props.articles.filter((element)=>{return element.title.props.searchTerm})}
-        <li key={item.id}><a href ={item.url}>{item.title}</a></li>
+        {props.articles.filter((element)=>{return element.title.toLowerCase().includes(props.searchTerm.toLowerCase())})
+        .map((item)=>{
+          return <li key={item.id}><a href ={item.url}>{item.title}</a></li>
+        })}
       </ul>
     </div>
   )
@@ -14,14 +16,12 @@ function Articles(props){
 function Search(props){
   return(
     <div>
-
       <input onChange = {(e)=>props.onSearch(e.target.value)}/>
-
     </div>
   )
 }
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <h1>REDUX ARTİCLE LİST SEARCH APP</h1>
