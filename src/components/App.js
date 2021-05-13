@@ -1,11 +1,22 @@
 import React from "react";
 import {connect} from 'react-redux'
 
+function Articles(props){
+  return(
+    <div>
+      <ul>
+        <li key={item.id}><a href ={item.url}>{item.title}</a></li>
+      </ul>
+    </div>
+  )
+}
+
 
 function App() {
   return (
     <div className="App">
       <h1>REDUX ARTİCLE LİST SEARCH APP</h1>
+      <Articles {...props}/>
     </div>
   );
 }
