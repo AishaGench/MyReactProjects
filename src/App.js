@@ -3,10 +3,10 @@ import {connect} from 'react-redux'
 import Counter from './components/Counter'
 
 
-function App() {
+function App(props) {
   return (
     <>
-    <Counter/>
+    <Counter onIncrement = {props.onIncrement} onDecrement = {props.onDecrement} value = {props.value}/>
     </>
     )
 }
