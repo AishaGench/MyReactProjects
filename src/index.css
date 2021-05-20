@@ -1,11 +1,22 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background-color: rgb(219, 179, 217);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  line-height: 1.666;
+  background: #c0d2d4;
+  color: #555;
 }
 
-.App{
-  width: 600px;
+
+.container {
+  text-align: center;
+  max-width: 500px;
   margin: 0 auto;
+  padding: 2rem;
+  border-radius: 3px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05), 0 5px 20px rgba(0, 0, 0, 0.1);
+  background-color: rgb(179, 178, 178);
+}
+
+button {
+  margin: 5px;
 }
